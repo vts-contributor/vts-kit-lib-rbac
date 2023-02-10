@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity VOrganization.
+    -->
+    <changeSet id="20230208074229-1" author="jhipster">
+        <createTable tableName="v_organization">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="parent_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="path" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="full_path" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="enabled" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="type" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_time" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="modified_time" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="del_flag" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="v_organization" columnName="created_time" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="v_organization" columnName="modified_time" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <changeSet id="20230208074229-1-relations" author="jhipster">
+
+        <createTable tableName="rel_v_organization__v_user">
+            <column name="v_user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="v_organization_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="v_organization_id, v_user_id" tableName="rel_v_organization__v_user"/>
+
+        <createTable tableName="rel_v_organization__v_role">
+            <column name="v_role_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="v_organization_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="v_organization_id, v_role_id" tableName="rel_v_organization__v_role"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20230208074229-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="db/init-data/v_organization.csv"
+                  separator=";"
+                  tableName="v_organization"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="parent_id" type="numeric"/>
+            <column name="code" type="string"/>
+            <column name="name" type="string"/>
+            <column name="description" type="string"/>
+            <column name="path" type="string"/>
+            <column name="full_path" type="string"/>
+            <column name="enabled" type="boolean"/>
+            <column name="type" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

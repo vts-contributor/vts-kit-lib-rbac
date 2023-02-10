@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+    <!--
+        Added the constraints for entity VOrganization.
+    -->
+    <changeSet id="20230208074229-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="v_organization_id"
+                                 baseTableName="rel_v_organization__v_user"
+                                 constraintName="fk_rel_v_organization__v_user__v_organization_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="v_organization"/>
+
+        <addForeignKeyConstraint baseColumnNames="v_user_id"
+                                 baseTableName="rel_v_organization__v_user"
+                                 constraintName="fk_rel_v_organization__v_user__v_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="v_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="v_organization_id"
+                                 baseTableName="rel_v_organization__v_role"
+                                 constraintName="fk_rel_v_organization__v_role__v_organization_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="v_organization"/>
+
+        <addForeignKeyConstraint baseColumnNames="v_role_id"
+                                 baseTableName="rel_v_organization__v_role"
+                                 constraintName="fk_rel_v_organization__v_role__v_role_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="v_role"/>
+    </changeSet>
+</databaseChangeLog>

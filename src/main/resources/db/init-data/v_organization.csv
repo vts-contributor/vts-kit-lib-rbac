@@ -1,0 +1,3 @@
+id;parent_id;code;name;description;path;full_path;enabled;type
+1;;DEFAULT_ORG;Default organization;;/default;/default;true;1
+2;1;DEFAULT_ORG_SUB;Default sub organization;;/sub;/default/sub;true;1
