@@ -7,8 +7,6 @@ import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,10 +24,10 @@ import java.util.Date;
 import java.util.stream.Collectors;
 
 @Component
-public class TokenProvider {
+public class VTokenProvider {
 
 
-    private final Logger log = LoggerFactory.getLogger(TokenProvider.class);
+    private final Logger log = LoggerFactory.getLogger(VTokenProvider.class);
 
     private static final String AUTHORITIES_KEY = "auth";
 
@@ -45,7 +43,7 @@ public class TokenProvider {
 
 //    private final SecurityMetersService securityMetersService;
 
-    public TokenProvider(JwtProperties jwtProperties) {
+    public VTokenProvider(JwtProperties jwtProperties) {
 
 
         byte[] keyBytes;

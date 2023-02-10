@@ -46,17 +46,17 @@ public class DynamicAuthorizationUtils {
         return vEndpointRepository.findByMethodAndUrl(request.getMethod().toUpperCase(), getPath(request));
     }
 
-    public String getRequestBody(){
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-        try {
-            BufferedReader inputStream = request.getReader();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            return .lines().collect(Collectors.joining(System.lineSeparator()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public String getRequestBody(){
+//        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+//        try {
+//            BufferedReader inputStream = request.getReader();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        try {
+//            return .lines().collect(Collectors.joining(System.lineSeparator()));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }

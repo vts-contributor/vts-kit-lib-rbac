@@ -42,8 +42,8 @@ public class AuthorizationAspect {
     @Before("controllerPointcut()")
     public void authorize(JoinPoint joinPoint){
         Optional<VEndpoint> optionalEndpoint = dynamicAuthorizationUtils.getEndpoint();
-        String test = dynamicAuthorizationUtils.getRequestBody();
-        if(!optionalEndpoint.isPresent()) throw new AccessDeniedException("");
+//        String test = dynamicAuthorizationUtils.getRequestBody();
+        if(!optionalEndpoint.isPresent()) return;
         VEndpoint endpoint = optionalEndpoint.get();
 
         if(!checkAllowed(endpoint)) throw new AccessDeniedException("");
