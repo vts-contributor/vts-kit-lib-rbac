@@ -48,10 +48,16 @@
     <include file="db/changelog/20230208074229_added_entity_VOrganization.xml" relativeToChangelogFile="false"/>
     <include file="db/changelog/20230208074230_added_entity_VUser.xml" relativeToChangelogFile="false"/>
     <include file="db/changelog/20230208074231_added_entity_VRole.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230210080051_added_entity_VEndpoint.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230210080052_added_entity_VRequestField.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230210080053_added_entity_VResponseField.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="db/changelog/20230208074229_added_entity_constraints_VOrganization.xml" relativeToChangelogFile="false"/>
     <include file="db/changelog/20230208074230_added_entity_constraints_VUser.xml" relativeToChangelogFile="false"/>
     <include file="db/changelog/20230208074232_added_relation_VUser_VRole.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230210080054_added_relation_VRole_VEndpoint.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230210080055_added_relation_VRole_VRequestField.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230210080056_added_relation_VRole_VResponseField.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
