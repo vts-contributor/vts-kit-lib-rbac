@@ -3,9 +3,9 @@ package com.example.libdev.service;
 import com.example.libdev.domain.VPermission;
 import com.example.libdev.domain.VPermissionType;
 import com.example.libdev.repository.VPermissionRepository;
-import com.example.libdev.web.rest.dto.AuthDTO;
-import com.example.libdev.web.rest.dto.MenuDTO;
-import com.example.libdev.web.rest.dto.PermissionDTO;
+import com.example.libdev.web.rest.dto.permission.AuthDTO;
+import com.example.libdev.web.rest.dto.permission.MenuDTO;
+import com.example.libdev.web.rest.dto.permission.PermissionDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -15,17 +15,14 @@ import java.util.Set;
 @Service
 public class VPermissionService {
     private VPermissionRepository vPermissionRepository;
-    private final RBACService rbacService;
 
-    public VPermissionService(VPermissionRepository vPermissionRepository, RBACService rbacService) {
+    public VPermissionService(VPermissionRepository vPermissionRepository) {
         this.vPermissionRepository = vPermissionRepository;
-        this.rbacService = rbacService;
     }
 
 
     public boolean getUserHasButtonPerms(String username, String perms){
 
-//        String username = rbacService.getUserLogin();
         return vPermissionRepository.getPermissionsByUserAndPerms(username, perms).isPresent();
     }
     public PermissionDTO getPermissions(String username) {

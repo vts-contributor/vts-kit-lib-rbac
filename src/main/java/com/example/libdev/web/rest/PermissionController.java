@@ -2,7 +2,7 @@ package com.example.libdev.web.rest;
 
 
 import com.example.libdev.dynamicauthorization.DynamicAuthorizationService;
-import com.example.libdev.web.rest.dto.PermissionDTO;
+import com.example.libdev.web.rest.dto.permission.PermissionDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

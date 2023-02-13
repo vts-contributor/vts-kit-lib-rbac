@@ -4,7 +4,7 @@ import com.example.libdev.domain.VEndpoint;
 import com.example.libdev.domain.VRole;
 import com.example.libdev.service.RBACService;
 import com.example.libdev.service.VPermissionService;
-import com.example.libdev.web.rest.dto.PermissionDTO;
+import com.example.libdev.web.rest.dto.permission.PermissionDTO;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;

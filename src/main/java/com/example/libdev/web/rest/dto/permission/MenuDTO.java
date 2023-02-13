@@ -1,6 +1,5 @@
-package com.example.libdev.web.rest.dto;
+package com.example.libdev.web.rest.dto.permission;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;

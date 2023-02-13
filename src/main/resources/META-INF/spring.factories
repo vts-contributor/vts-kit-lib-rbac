@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.example.libdev.LibDevApplication
+com.example.libdev.RBACAutoConfiguration

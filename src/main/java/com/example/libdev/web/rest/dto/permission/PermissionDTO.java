@@ -1,4 +1,4 @@
-package com.example.libdev.web.rest.dto;
+package com.example.libdev.web.rest.dto.permission;
 
 import java.io.Serializable;
 import java.util.Set;
