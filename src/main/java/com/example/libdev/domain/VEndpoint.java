@@ -41,6 +41,9 @@ public class VEndpoint extends VAbstractAuditingEntity {
     @Column(name = "method")
     private String method;
 
+    @Column(name = "perms")
+    private String perms;
+
     @OneToMany(mappedBy = "vEndpoint")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "vEndpoint" }, allowSetters = true)
@@ -141,6 +144,15 @@ public class VEndpoint extends VAbstractAuditingEntity {
 
     public void setMethod(String method) {
         this.method = method;
+    }
+
+
+    public String getPerms() {
+        return perms;
+    }
+
+    public void setPerms(String perms) {
+        this.perms = perms;
     }
 
     public Set<VRequestField> getVRequestFields() {

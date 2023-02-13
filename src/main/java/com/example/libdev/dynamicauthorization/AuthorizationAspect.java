@@ -27,6 +27,8 @@ public class AuthorizationAspect {
     @Autowired
     private DynamicAuthorizationUtils dynamicAuthorizationUtils;
 
+    @Autowired
+    private DynamicAuthorizationService dynamicAuthorizationService;
 
     @Autowired
     private RBACService rbacService;
@@ -46,19 +48,6 @@ public class AuthorizationAspect {
         if(!optionalEndpoint.isPresent()) return;
         VEndpoint endpoint = optionalEndpoint.get();
 
-        if(!checkAllowed(endpoint)) throw new AccessDeniedException("");
-        if(!endpoint.getMethod().toUpperCase().equals("GET")){
-
-        }
-    }
-
-    private boolean checkAllowed(VEndpoint endpoint){
-        Set<String> allowedRoles = endpoint.getvRoles().stream().map(VRole::getCode).collect(Collectors.toSet());
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        for(String role: rbacService.getRoleId(authentication)){
-            if(allowedRoles.contains(role)) return true;
-        }
-        return false;
+        if(!dynamicAuthorizationService.checkAllowed(endpoint)) throw new AccessDeniedException("");
     }
 }

@@ -58,6 +58,8 @@
     <include file="db/changelog/20230210080054_added_relation_VRole_VEndpoint.xml" relativeToChangelogFile="false"/>
     <include file="db/changelog/20230210080055_added_relation_VRole_VRequestField.xml" relativeToChangelogFile="false"/>
     <include file="db/changelog/20230210080056_added_relation_VRole_VResponseField.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230213012922_added_entity_VPermission.xml" relativeToChangelogFile="false"/>
+    <include file="db/changelog/20230213012923_added_relation_VRole_VPermission.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
